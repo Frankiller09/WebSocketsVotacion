@@ -61,11 +61,9 @@ npm --version
 ## 1. Clonar el repositorio
 
 ```powershell
-git clone https://github.com/TU_USUARIO/votacion-tiempo-real.git
-cd votacion-tiempo-real
+git clone (https://github.com/Frankiller09/WebSocketsVotacion.git)
 ```
 
-Reemplaza `TU_USUARIO` por el nombre real del propietario del repositorio.
 
 ## 2. Crear la base de datos
 
@@ -151,7 +149,7 @@ El script genera diez conexiones WebSocket y comprueba que el incremento total c
 ## Estructura del proyecto
 
 ```text
-votacion-tiempo-real/
+PROYECTO GRUPAL/
 ├── backend/
 │   ├── main.py
 │   ├── database.py
