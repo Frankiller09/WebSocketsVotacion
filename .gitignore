@@ -1,0 +1,28 @@
+# Python
+**/.venv/
+**/venv/
+**/__pycache__/
+**/*.py[cod]
+.pytest_cache/
+
+# Credenciales; conservar solo ejemplos
+**/.env
+**/.env.*
+!**/.env.example
+
+# React / Vite
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Editor y temporales
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Evidencias privadas / documentos con capturas
+capturas/
+evidencias/
+*.docx

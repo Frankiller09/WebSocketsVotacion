@@ -1,0 +1,518 @@
+
+/* =====================================
+   CONFIGURACIÓN GLOBAL
+===================================== */
+
+:root {
+  --fondo: #0a1423;
+  --encabezado: #101e31;
+  --tarjeta: #17263a;
+  --borde: #354a63;
+  --texto: #f1f5f9;
+  --texto-secundario: #a6b8cd;
+  --azul: #3998ee;
+}
+
+.aplicacion {
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+.encabezado {
+  background: var(--encabezado);
+  border-bottom: 1px solid var(--borde);
+}
+
+.encabezado-interior {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 30px 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.titulo {
+  min-width: 0;
+}
+
+.titulo-superior {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #73a5d3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.titulo h1 {
+  margin: 0;
+
+  font-size: clamp(23px, 2.6vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.titulo p {
+  margin: 10px 0 0;
+  color: var(--texto-secundario);
+  font-size: 13px;
+}
+
+/* =====================================
+   ESTADO WEBSOCKET
+===================================== */
+
+.indicadores {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 15px;
+}
+
+.indicador-vivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 13px;
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.indicador-vivo.activo {
+  background: #b32839;
+  color: white;
+}
+
+.indicador-vivo.inactivo {
+  background: #344358;
+  color: #d2dce8;
+}
+
+.punto-vivo {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.estado-conexion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.estado-conexion.online {
+  color: #7cdea5;
+}
+
+.estado-conexion.offline {
+  color: #f3a0a0;
+}
+
+.punto-conexion {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.online .punto-conexion {
+  background: #39d680;
+  box-shadow: 0 0 0 3px rgba(57, 214, 128, 0.13);
+}
+
+.offline .punto-conexion {
+  background: #f07878;
+}
+
+/* =====================================
+   DISTRIBUCIÓN PRINCIPAL
+===================================== */
+
+.contenido {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 45px 35px;
+}
+
+/* TRES TARJETAS HORIZONTALES */
+
+.tarjetas-partidos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* =====================================
+   TARJETA DE CADA PARTIDO
+===================================== */
+
+.tarjeta-partido {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  padding: 24px;
+  background: var(--tarjeta);
+
+  border: 1px solid var(--borde);
+  border-top: 3px solid var(--color-partido);
+  border-radius: 6px;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.tarjeta-partido:hover {
+  background: #1a2c42;
+  border-color: var(--color-partido);
+}
+
+/* TÍTULO DEL PARTIDO */
+
+.nombre-partido {
+  margin: 0 0 22px;
+
+  font-size: clamp(19px, 2vw, 25px);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--color-partido);
+}
+
+/* =====================================
+   FOTOGRAFÍA
+===================================== */
+
+.imagen-partido {
+  width: 100%;
+  height: clamp(200px, 25vw, 290px);
+  margin-bottom: 22px;
+
+  background: #24374b;
+  border: 1px solid #4b6076;
+  border-radius: 4px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-partido img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.imagen-partido span {
+  color: var(--texto-secundario);
+  font-size: 12px;
+}
+
+/* =====================================
+   BOTÓN VOTAR
+===================================== */
+
+.boton-votar {
+  width: 100%;
+  min-height: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 27px;
+  padding: 12px 18px;
+
+  background: #304c6b;
+  color: #ffffff;
+
+  border: 1px solid #7294b4;
+  border-radius: 4px;
+
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.boton-votar:hover:not(:disabled) {
+  background: #426d98;
+  border-color: #a3c8ee;
+}
+
+.boton-votar:active:not(:disabled) {
+  background: #28435f;
+}
+
+.boton-votar:focus-visible {
+  outline: 3px solid #9ed4ff;
+  outline-offset: 3px;
+}
+
+.boton-votar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.boton-votar span:last-child {
+  font-size: 21px;
+  line-height: 1;
+}
+
+/* =====================================
+   RESULTADOS
+===================================== */
+
+.resultados {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--borde);
+}
+
+.encabezado-resultados {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 13px;
+}
+
+.encabezado-resultados span {
+  color: var(--texto-secundario);
+  font-size: 12px;
+}
+
+.encabezado-resultados strong {
+  color: var(--color-partido);
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* BARRA DINÁMICA */
+
+.barra-progreso {
+  width: 100%;
+  height: 20px;
+
+  background: #0b1929;
+  border: 1px solid #3a5067;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barra-relleno {
+  height: 100%;
+  width: 0;
+
+  background: var(--color-partido);
+  border-radius: 3px;
+
+  transition: width 0.45s ease;
+}
+
+/* TOTAL DE VOTOS */
+
+.total-votos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--borde);
+}
+
+.total-votos span {
+  color: var(--texto-secundario);
+  font-size: 13px;
+}
+
+.total-votos strong {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =====================================
+   ERRORES Y ESTADOS VACÍOS
+===================================== */
+
+.mensaje-error {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+
+  background: #40242d;
+  border: 1px solid #ad5661;
+  border-radius: 5px;
+
+  color: #ffd5d9;
+  font-size: 13px;
+}
+
+.sin-resultados {
+  grid-column: 1 / -1;
+
+  padding: 65px 20px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+
+  color: var(--texto-secundario);
+  text-align: center;
+}
+
+/* =====================================
+   RESPONSIVE: TABLET
+===================================== */
+
+@media (max-width: 1050px) {
+  .encabezado-interior {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tarjetas-partidos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .imagen-partido {
+    height: 250px;
+  }
+}
+
+/* =====================================
+   RESPONSIVE: MÓVIL
+===================================== */
+
+@media (max-width: 680px) {
+  .encabezado-interior {
+    padding: 25px 18px;
+    gap: 20px;
+  }
+
+  .titulo h1 {
+    font-size: 25px;
+  }
+
+  .titulo p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .titulo-superior {
+    font-size: 10px;
+  }
+
+  .indicadores {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .contenido {
+    padding: 25px 16px;
+  }
+
+  .tarjetas-partidos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tarjeta-partido {
+    padding: 20px;
+  }
+
+  .nombre-partido {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .imagen-partido {
+    height: 270px;
+    margin-bottom: 20px;
+  }
+
+  .boton-votar {
+    min-height: 50px;
+  }
+
+  .encabezado-resultados strong {
+    font-size: 23px;
+  }
+
+  .total-votos strong {
+    font-size: 24px;
+  }
+}
+
+/* =====================================
+   MÓVILES MUY PEQUEÑOS
+===================================== */
+
+@media (max-width: 380px) {
+  .contenido {
+    padding: 18px 12px;
+  }
+
+  .tarjeta-partido {
+    padding: 16px;
+  }
+
+  .imagen-partido {
+    height: 220px;
+  }
+
+  .encabezado-resultados span,
+  .total-votos span {
+    font-size: 11px;
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-partido,
+  .boton-votar,
+  .barra-relleno {
+    transition: none;
+  }
+}

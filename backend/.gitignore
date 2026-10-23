@@ -1,0 +1,19 @@
+# Credenciales
+.env
+.env.*
+!.env.example
+
+# Entornos virtuales Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Dependencias y compilación React
+node_modules/
+dist/
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+*.log

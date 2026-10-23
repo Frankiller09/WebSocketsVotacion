@@ -1,0 +1,42 @@
+/* ESTILOS GENERALES DE LA APLICACIÓN */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family:
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #091321;
+  color: #f1f5f9;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: #3299f6;
+  color: #ffffff;
+}
